@@ -1,13 +1,79 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Quiz App</title>
+  <!-- Tailwind via CDN - quick prototyping -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small custom styles for better print/spacing */
+    .option-btn:focus { outline: 3px solid rgba(59,130,246,0.25); }
+  </style>
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+<body class="bg-slate-50 min-h-screen flex items-center justify-center p-6">
+  <main class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 md:p-6">
+    <header class="mb-6">
+      <h1 class="text-2xl md:text-3xl font-semibold text-slate-300">Quiz App</h1>
+      <p class="text-sm text-slate-500 mt-1">Answer The Questions - your score will appear at the end.</p>
+ </header>
+
+ <!-- Quiz Container  -->
+
+ <section id="quiz" class="space-y-6">
+
+  <!-- Question Box -->
+   <div id="questionCard" class="p-6 border rounded-lg bg-slate-50">
+    <div class="flex items-start justify-between">
+      <div>
+        <p id="qNumber" class="text-sm text-slate-500">Question 1 of 5</p>
+<h2 id="qText" class="mt-2 text-lg md:text-xl font-medium text-slate-800">Loading...</h2>
+      </div>
+
+      <div class="text-right">
+<p class="text-sm text-slate-500">Score</p>
+<p id="liveScore" class="text-lg font-semibold text-indigo-600">0</p>
+      </div>
+    </div>
+<div id="options" class="mt-6 grid gap-3">
+<!-- option buttons will be injected here -->
+</div>
+   </div>
+
+   <!-- Controls  -->
+    <div class="flex items-center justify-between">
+<button id="prevBtn" class="px-4 py-2 rounded-lg border text-slate-700 hover:bg-slate-100 disabled:opacity-50" disabled>Previous</button>
+<div class="flex gap-2">
+<button id="clearBtn" class="px-4 py-2 rounded-lg border text-slate-700 hover:bg-slate-100">Clear Answer</button>
+<button id="nextBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Next</button>
+</div>
+</div>
+
+<!-- Result area (hidden until end) -->
+<div id="result" class="hidden p-6 border rounded-lg bg-emerald-50">
+<h3 class="text-xl font-semibold text-slate-800">Your Result</h3>
+<p class="mt-2 text-slate-600">You scored <span id="finalScore" class="font-bold text-indigo-600">0</span> out of <span id="totalQ">0</span>.</p>
+<div class="mt-4 flex gap-3">
+<button id="retryBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Retry</button>
+<button id="reviewBtn" class="px-4 py-2 border rounded-lg">Review Answers</button>
+</div>
+</div>
+
+<!-- Review list -->
+<div id="review" class="hidden p-4 border rounded-lg bg-slate-50 space-y-4">
+<h4 class="font-semibold">Review</h4>
+<div id="reviewList" class="space-y-3 text-sm text-slate-700"></div>
+</div>
+ </section>
+
+ <footer class="mt-6 text-xs text-slate-400">
+Built with HTML, Tailwind CSS and Vanilla JavaScript.
+</footer>
+
+  </main>
+  
+<script src="script.js">
+
+</script>
 </body>
 </html>
